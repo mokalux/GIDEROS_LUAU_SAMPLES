@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+ <properties html5_crash="" html5_mem="256" html5_fbload="100" splash_v_image="" logicalWidth="768" winrt_org="GiderosMobile" html5_pack="1" splash_h_image="" encryptAssets="1" osx_installerId="" osx_org="GiderosMobile" version_code="1" windowWidth="0" ios_bundle="com.yourdomain." osx_bundle="com.yourdomain." osx_domain="giderosmobile.com" version="1.0" mouseToTouch="1" osx_signingId="" html5_host="" html5_fbinstant="0" win_org="GiderosMobile" tv_icon="" logicalHeight="1366" win_domain="giderosmobile.com" encryptCode="1" architecture="2" retinaDisplay="3" macos_category="5" atv_bundle="com.yourdomain.yourapp-atv" iosDevice="0" winrt_package="com.yourdomain.yourapp" splashScaleMode="0" scaleMode="6" touchToMouse="1" build_number="1" html5_pwa="0" backgroundColor="#ffffff" disableSplash="0" fps="60" mainluaOnly="0" autorotation="0" osx_category="5" app_name="gideros_3d_luau" html5_wasm="1" mouseTouchOrder="0" app_icon="" macos_bundle="com.yourdomain.yourapp-macos" windowHeight="0" orientation="1" exportMode="0" html5_symbols="0" vsync="1">
+  <imageScales/>
+  <plugins>
+   <plugin enabled="1" name="Easing"/>
+   <plugin enabled="1" name="JSON"/>
+   <plugin enabled="1" name="LuaFileSystem"/>
+   <plugin enabled="1" name="ReactPhysics3D"/>
+   <plugin enabled="1" name="SceneManager"/>
+  </plugins>
+  <exports>
+   <export name="APK">
+    <property value="" name="androidPath"/>
+    <property value="" name="androidSdk"/>
+    <property value="26" name="androidTarget"/>
+    <property value="" name="androidTools"/>
+    <property value="1" name="buildAab"/>
+    <property value="0" name="buildApk"/>
+    <property value="0" name="deployApk"/>
+    <property value="0" name="forOculus"/>
+    <property value="" name="javaPath"/>
+    <property value="" name="keyAlias"/>
+    <property value="" name="keyStore"/>
+    <property value="0" name="oculusHT"/>
+    <property value="0" name="oculusHTR"/>
+    <property value="com.yourdomain.yourapp" name="packageName"/>
+    <property value="0" name="timestampApk"/>
+   </export>
+  </exports>
+ </properties>
+ <folder name="3d_factory">
+  <file name="assets/3d_factory/3DMESH.lua"/>
+  <file name="assets/3d_factory/3Dbox.lua"/>
+  <file name="assets/3d_factory/3Dconcaves.lua"/>
+  <file name="assets/3d_factory/3Dcylinder.lua"/>
+  <file name="assets/3d_factory/3Dheightfield.lua"/>
+  <file name="assets/3d_factory/3Dplane.lua"/>
+  <file name="assets/3d_factory/3Dsphere.lua"/>
+  <file name="assets/3d_factory/fbx.lua"/>
+  <file name="assets/3d_factory/monsters.lua"/>
+  <file name="assets/3d_factory/obj.lua"/>
+  <file name="assets/3d_factory/player1.lua"/>
+  <file name="assets/3d_factory/prisonners.lua"/>
+  <file name="assets/3d_factory/the_boss.lua"/>
+ </folder>
+ <folder name="3dbase">
+  <file name="assets/3dbase/3DAnimation.lua"/>
+  <file name="assets/3dbase/3DGdxLoader.lua"/>
+  <file name="assets/3dbase/3DLighting.lua"/>
+  <file excludeFromExecution="1" name="assets/3dbase/3DObjLoader.lua"/>
+  <file name="assets/3dbase/3DObjLoader2.lua"/>
+  <file name="assets/3dbase/3DShaders.lua"/>
+  <file name="assets/3dbase/3DShapes.lua"/>
+  <file name="assets/3dbase/3DView.lua"/>
+  <file name="assets/3dbase/G3DFormat.lua"/>
+  <file name="assets/3dbase/gltf.lua"/>
+ </folder>
+ <folder name="classes">
+  <file name="assets/classes/buttonMonster.lua"/>
+  <file name="assets/classes/save_prefs.lua"/>
+ </folder>
+ <folder name="fonts">
+  <file name="assets/fonts/Cabin-Regular-TTF.ttf"/>
+ </folder>
+ <folder name="gfx">
+  <file name="assets/gfx/box.png"/>
+  <file name="assets/gfx/envbox.jpg"/>
+  <file name="assets/gfx/grass.png"/>
+ </folder>
+ <folder name="luashader">
+  <file name="assets/luashader/effects.lua"/>
+  <file name="assets/luashader/luac_codegen.lua"/>
+  <file name="assets/luashader/luac_loader.lua"/>
+  <file name="assets/luashader/luashader.lua"/>
+  <file name="assets/luashader/luau_codegen.lua"/>
+ </folder>
+ <folder name="models">
+  <folder name="env">
+   <file name="assets/models/env/dungeon.glb"/>
+  </folder>
+  <folder name="fantasy_female">
+   <file name="assets/models/fantasy_female/characterLargeFemale.json"/>
+   <file name="assets/models/fantasy_female/fantasyFemaleB.png"/>
+   <file name="assets/models/fantasy_female/idle.json"/>
+   <file name="assets/models/fantasy_female/walk.json"/>
+  </folder>
+  <folder name="monsters">
+   <file name="assets/models/monsters/GreenDemon_Texture.png"/>
+   <file name="assets/models/monsters/GreenDemon_anims.json"/>
+   <file name="assets/models/monsters/GreenDemon_mesh.json"/>
+   <file name="assets/models/monsters/YellowDragon.json"/>
+   <file name="assets/models/monsters/YellowDragon_Texture.png"/>
+   <file name="assets/models/monsters/YellowDragon_anims.json"/>
+   <file name="assets/models/monsters/YellowDragon_mesh.json"/>
+   <file name="assets/models/monsters/Yeti.json"/>
+   <file name="assets/models/monsters/Yeti_Texture.png"/>
+   <file name="assets/models/monsters/Yeti_anims.json"/>
+   <file name="assets/models/monsters/Yeti_mesh.json"/>
+  </folder>
+  <folder name="objs">
+   <folder name="camel">
+    <file name="assets/models/objs/camel/camel_caravan2.mtl"/>
+    <file name="assets/models/objs/camel/camel_caravan2.obj"/>
+    <file name="assets/models/objs/camel/texture - Copy.png"/>
+    <file name="assets/models/objs/camel/texture.png"/>
+   </folder>
+  </folder>
+  <folder name="the_boss">
+   <file name="assets/models/the_boss/Boss_diffuse.png"/>
+   <file name="assets/models/the_boss/Boss_normal.png"/>
+   <file name="assets/models/the_boss/Boss_specular.png"/>
+   <file name="assets/models/the_boss/the_boss_mesh.json"/>
+   <file name="assets/models/the_boss/the_boss_old_man_anim.json"/>
+  </folder>
+ </folder>
+ <folder name="scenes">
+  <file name="assets/scenes/levelX.lua"/>
+  <file name="assets/scenes/menu.lua"/>
+ </folder>
+ <folder name="textures">
+  <file name="assets/textures/Brick-0588_x2.png"/>
+  <file name="assets/textures/Brick-0588_x3.png"/>
+  <file name="assets/textures/Chainmail512.png"/>
+  <file name="assets/textures/Concrete026_2K_Color.jpg"/>
+  <file name="assets/textures/Muddy_Pavement512.jpg"/>
+  <file name="assets/textures/Purple Crystal512.jpg"/>
+  <file name="assets/textures/black_sand.jpg"/>
+  <file name="assets/textures/skyscraper_at_night.jpg"/>
+  <file name="assets/textures/trp.png"/>
+  <file name="assets/textures/yellow_segmented_window.jpg"/>
+ </folder>
+ <folder name="tiled">
+  <folder name="levels">
+   <file excludeFromExecution="1" name="assets/tiled/levels/level01A.lua"/>
+   <file name="assets/tiled/levels/level01A.tmx"/>
+   <file excludeFromExecution="1" name="assets/tiled/levels/level02A.lua"/>
+   <file name="assets/tiled/levels/level02A.tmx"/>
+  </folder>
+  <file name="assets/tiled/tiled_levels.lua"/>
+ </folder>
+ <file name="assets/init.lua"/>
+ <file name="assets/main.lua"/>
+</project>

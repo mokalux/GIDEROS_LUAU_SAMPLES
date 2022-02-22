@@ -1,0 +1,14 @@
+# Blender MTL File: 'camel_caravan2.blend'
+# Material Count: 1
+
+newmtl texure
+Ns 18.000005
+Ka 1.000000 1.000000 1.000000
+Kd 0.498039 0.498039 0.498039
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd texture.png
+map_d texture.png

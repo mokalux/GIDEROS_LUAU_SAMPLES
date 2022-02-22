@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.5" tiledversion="2021.03.23" orientation="orthogonal" renderorder="right-down" width="8" height="12" tilewidth="32" tileheight="32" infinite="0" nextlayerid="14" nextobjectid="457">
+ <editorsettings>
+  <export target="level01A.lua" format="lua"/>
+ </editorsettings>
+ <objectgroup color="#5500ff" id="12" name="bg">
+  <object id="161" name="groundA" x="0" y="0" width="96" height="96"/>
+  <object id="347" name="groundB" x="96" y="0" width="64" height="64"/>
+  <object id="363" name="groundA" x="160" y="0" width="96" height="96"/>
+  <object id="368" name="groundB" x="0" y="96" width="64" height="64"/>
+  <object id="376" name="groundA" x="64" y="96" width="32" height="32"/>
+  <object id="377" name="groundA" x="64" y="128" width="32" height="32"/>
+  <object id="378" name="groundA" x="160" y="96" width="32" height="32"/>
+ </objectgroup>
+ <objectgroup color="#55aaff" id="11" name="mg"/>
+ <objectgroup color="#00ff00" id="10" name="fg">
+  <object id="173" name="player1" x="40" y="48" width="5.80392" height="5.80392" rotation="180"/>
+ </objectgroup>
+</map>

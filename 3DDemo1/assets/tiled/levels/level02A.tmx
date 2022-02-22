@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.5" tiledversion="2021.03.23" orientation="orthogonal" renderorder="right-down" width="8" height="12" tilewidth="32" tileheight="32" infinite="0" nextlayerid="14" nextobjectid="459">
+ <editorsettings>
+  <export target="level02A.lua" format="lua"/>
+ </editorsettings>
+ <objectgroup color="#00ff00" id="10" name="fg">
+  <object id="173" name="player1" x="40" y="48" width="5.80392" height="5.80392" rotation="180"/>
+  <object id="326" name="mutant" x="200" y="296" width="5.80392" height="5.80392" rotation="-180"/>
+  <object id="327" name="the_boss" x="226" y="298" width="5.80392" height="5.80392" rotation="-90"/>
+  <object id="333" name="prisonner" x="172" y="115" width="5.80392" height="5.80392"/>
+  <object id="391" name="prisonner" x="232" y="194" width="5.80392" height="5.80392"/>
+  <object id="392" name="prisonner" x="72" y="205" width="5.80392" height="5.80392"/>
+  <object id="393" name="prisonner" x="78" y="116" width="5.80392" height="5.80392"/>
+  <object id="394" name="prisonner" x="96" y="272" width="5.80392" height="5.80392"/>
+  <object id="395" name="prisonner" x="201" y="339" width="5.80392" height="5.80392"/>
+  <object id="396" name="prisonner" x="24" y="106" width="5.80392" height="5.80392"/>
+  <object id="397" name="prisonner" x="160" y="47" width="5.80392" height="5.80392"/>
+  <object id="398" name="prisonner" x="217" y="79" width="5.80392" height="5.80392"/>
+  <object id="399" name="prisonner" x="38" y="269" width="5.80392" height="5.80392"/>
+  <object id="425" name="mutant" x="216" y="280" width="5.80392" height="5.80392" rotation="-180"/>
+ </objectgroup>
+ <objectgroup color="#55aaff" id="11" name="mg">
+  <object id="164" name="wall01" x="24" y="360" width="24" height="24"/>
+  <object id="166" name="wall02" x="176" y="64" width="24" height="1"/>
+  <object id="167" name="building01" x="128" y="64" width="48" height="12"/>
+  <object id="169" name="building01" x="30" y="81" width="33" height="16"/>
+  <object id="171" name="wall02" x="207" y="227" width="32" height="3"/>
+  <object id="177" name="building01" x="42" y="144" width="60" height="24"/>
+  <object id="178" name="building01" x="19" y="240" width="62" height="16"/>
+  <object id="181" name="wall01" x="0" y="360" width="24" height="24"/>
+  <object id="182" name="wall01" x="0" y="336" width="16" height="24"/>
+  <object id="183" name="wall01" x="0" y="312" width="16" height="24"/>
+  <object id="184" name="wall01" x="0" y="288" width="16" height="24"/>
+  <object id="185" name="wall01" x="0" y="264" width="16" height="24"/>
+  <object id="186" name="wall01" x="0" y="240" width="16" height="24"/>
+  <object id="187" name="wall01" x="0" y="216" width="16" height="24"/>
+  <object id="188" name="wall01" x="0" y="192" width="16" height="24"/>
+  <object id="189" name="wall01" x="0" y="168" width="16" height="24"/>
+  <object id="190" name="wall01" x="0" y="144" width="16" height="24"/>
+  <object id="191" name="wall01" x="0" y="120" width="16" height="24"/>
+  <object id="192" name="wall01" x="0" y="96" width="16" height="24"/>
+  <object id="193" name="wall01" x="0" y="72" width="16" height="24"/>
+  <object id="194" name="wall01" x="0" y="48" width="16" height="24"/>
+  <object id="195" name="wall01" x="0" y="24" width="16" height="24"/>
+  <object id="196" name="wall01" x="0" y="0" width="24" height="24"/>
+  <object id="215" name="wall01" x="240" y="336" width="16" height="24"/>
+  <object id="216" name="wall01" x="240" y="312" width="16" height="24"/>
+  <object id="217" name="wall01" x="240" y="288" width="16" height="24"/>
+  <object id="218" name="wall01" x="240" y="264" width="16" height="24"/>
+  <object id="219" name="wall01" x="240" y="240" width="16" height="24"/>
+  <object id="220" name="wall01" x="240" y="216" width="16" height="24"/>
+  <object id="221" name="wall01" x="240" y="192" width="16" height="24"/>
+  <object id="222" name="wall01" x="240" y="168" width="16" height="24"/>
+  <object id="223" name="wall01" x="240" y="144" width="16" height="24"/>
+  <object id="224" name="wall01" x="240" y="120" width="16" height="24"/>
+  <object id="225" name="wall01" x="240" y="96" width="16" height="24"/>
+  <object id="226" name="wall01" x="240" y="72" width="16" height="24"/>
+  <object id="227" name="wall01" x="240" y="48" width="16" height="24"/>
+  <object id="228" name="wall01" x="240" y="24" width="16" height="24"/>
+  <object id="231" name="wall01" x="48" y="360" width="24" height="24"/>
+  <object id="232" name="wall01" x="72" y="360" width="24" height="24"/>
+  <object id="233" name="wall01" x="96" y="360" width="24" height="24"/>
+  <object id="234" name="wall01" x="120" y="360" width="24" height="24"/>
+  <object id="235" name="wall01" x="144" y="360" width="24" height="24"/>
+  <object id="236" name="wall01" x="168" y="360" width="24" height="24"/>
+  <object id="237" name="wall01" x="192" y="360" width="24" height="24"/>
+  <object id="238" name="wall01" x="216" y="360" width="24" height="24"/>
+  <object id="239" name="wall01" x="240" y="360" width="16" height="24"/>
+  <object id="244" name="wall01" x="24" y="0" width="24" height="24"/>
+  <object id="245" name="wall01" x="48" y="0" width="24" height="24"/>
+  <object id="246" name="wall01" x="72" y="0" width="24" height="24"/>
+  <object id="247" name="wall01" x="96" y="0" width="24" height="24"/>
+  <object id="248" name="wall01" x="120" y="0" width="24" height="24"/>
+  <object id="249" name="wall01" x="144" y="0" width="24" height="24"/>
+  <object id="250" name="wall01" x="168" y="0" width="24" height="24"/>
+  <object id="251" name="wall01" x="192" y="0" width="24" height="24"/>
+  <object id="252" name="wall01" x="216" y="0" width="24" height="24"/>
+  <object id="253" name="wall01" x="240" y="0" width="16" height="24"/>
+  <object id="264" name="building01" x="144" y="240" width="24" height="6"/>
+  <object id="265" name="wall01" x="186" y="261" width="6" height="6"/>
+  <object id="340" name="building01" x="130" y="202" width="50" height="16"/>
+  <object id="341" name="building01" x="56" y="32" width="44" height="8"/>
+  <object id="343" name="wall02" x="176" y="75" width="9" height="1"/>
+  <object id="344" name="wall02" x="16" y="360" width="32" height="1.58579" rotation="-45"/>
+  <object id="345" name="wall02" x="64" y="40" width="2" height="2"/>
+  <object id="346" name="wall02" x="66" y="56" width="18" height="2"/>
+  <object id="387" name="building01" x="152" y="312" width="88" height="10"/>
+  <object id="388" name="building01" x="88" y="328" width="48" height="16"/>
+  <object id="389" name="building01" x="64" y="288" width="16" height="16"/>
+  <object id="390" x="39" y="58" width="4" height="4">
+   <ellipse/>
+  </object>
+  <object id="404" name="building01" x="134" y="76" width="6" height="36"/>
+  <object id="405" name="building01" x="140" y="104" width="6" height="6"/>
+  <object id="406" name="building01" x="146" y="102" width="6" height="6"/>
+  <object id="407" name="building01" x="152" y="100" width="6" height="6"/>
+  <object id="408" name="building01" x="158" y="98" width="6" height="6"/>
+  <object id="409" name="wall02" x="64" y="42" width="2" height="2"/>
+  <object id="410" name="wall02" x="64" y="44" width="2" height="2"/>
+  <object id="411" name="wall02" x="64" y="46" width="2" height="2"/>
+  <object id="412" name="wall02" x="64" y="48" width="2" height="2"/>
+  <object id="413" name="wall02" x="64" y="50" width="2" height="2"/>
+  <object id="414" name="wall02" x="64" y="52" width="2" height="2"/>
+  <object id="415" name="wall02" x="64" y="54" width="2" height="2"/>
+  <object id="416" name="wall02" x="64" y="56" width="2" height="2"/>
+  <object id="417" name="building01" x="128" y="256" width="16" height="16"/>
+  <object id="418" name="building01" x="120" y="272" width="16" height="16"/>
+  <object id="419" name="building01" x="112" y="288" width="16" height="16"/>
+  <object id="420" name="building01" x="104" y="304" width="16" height="16"/>
+  <object id="421" name="building02" x="168" y="296" width="16" height="16"/>
+  <object id="422" name="building01" x="224" y="256" width="16" height="16"/>
+  <object id="423" name="wall01" x="202" y="261" width="6" height="6"/>
+  <object id="424" name="wall01" x="218" y="261" width="6" height="6"/>
+  <object id="426" name="building01" x="48" y="224" width="16" height="16"/>
+  <object id="427" name="building01" x="48" y="208" width="16" height="16"/>
+  <object id="428" name="building01" x="48" y="192" width="16" height="16"/>
+  <object id="429" name="building01" x="104" y="184" width="16" height="16"/>
+  <object id="430" name="building01" x="224" y="136" width="16" height="16"/>
+  <object id="431" name="building01" x="208" y="136" width="16" height="16"/>
+  <object id="432" name="building01" x="203" y="152" width="8" height="8"/>
+  <object id="433" name="building01" x="190" y="177" width="8" height="8"/>
+  <object id="434" name="building01" x="179" y="190" width="8" height="8"/>
+  <object id="435" name="building01" x="198" y="165" width="8" height="8"/>
+  <object id="436" name="wall02" x="160" y="227" width="32" height="3"/>
+  <object id="437" name="wall02" x="160" y="224" width="3" height="3"/>
+  <object id="438" name="wall02" x="160" y="218" width="3" height="3"/>
+  <object id="439" name="wall02" x="160" y="221" width="3" height="3"/>
+  <object id="440" name="building01" x="16" y="176" width="5" height="6"/>
+  <object id="441" name="building01" x="16" y="182" width="5" height="6"/>
+  <object id="442" name="building01" x="16" y="188" width="5" height="6"/>
+  <object id="443" name="building01" x="16" y="194" width="5" height="6"/>
+  <object id="444" name="building01" x="16" y="200" width="5" height="6"/>
+  <object id="445" name="building01" x="16" y="206" width="5" height="6"/>
+  <object id="446" name="wall01" x="173" y="273" width="6" height="6"/>
+  <object id="447" name="wall01" x="158" y="287" width="6" height="6"/>
+  <object id="448" name="wall01" x="174" y="347" width="6" height="6"/>
+  <object id="449" name="wall01" x="174" y="329" width="6" height="6"/>
+  <object id="450" name="building01" x="46" y="345" width="6" height="6"/>
+  <object id="451" name="building01" x="25" y="324" width="6" height="6"/>
+  <object id="452" name="building01" x="100" y="32" width="44" height="8"/>
+  <object id="453" name="building01" x="63" y="81" width="31" height="16"/>
+  <object id="454" name="building01" x="102" y="144" width="60" height="24"/>
+  <object id="455" name="building01" x="180" y="202" width="46" height="16"/>
+  <object id="456" name="building01" x="81" y="240" width="63" height="16"/>
+  <object id="457" name="obj1" x="48" y="48" width="8" height="8"/>
+ </objectgroup>
+ <objectgroup color="#5500ff" id="12" name="bg" visible="0">
+  <object id="161" name="groundA" x="0" y="0" width="96" height="96"/>
+  <object id="347" name="groundB" x="96" y="0" width="64" height="64"/>
+  <object id="363" name="groundA" x="160" y="0" width="96" height="96"/>
+  <object id="364" name="groundA" x="96" y="128" width="96" height="96"/>
+  <object id="365" name="groundB" x="96" y="64" width="64" height="64"/>
+  <object id="366" name="groundA" x="0" y="224" width="96" height="96"/>
+  <object id="367" name="groundA" x="160" y="224" width="96" height="96"/>
+  <object id="368" name="groundB" x="0" y="96" width="64" height="64"/>
+  <object id="369" name="groundB" x="192" y="96" width="64" height="64"/>
+  <object id="370" name="groundB" x="96" y="224" width="64" height="64"/>
+  <object id="371" name="groundB" x="96" y="288" width="64" height="64"/>
+  <object id="372" name="groundB" x="0" y="320" width="64" height="64"/>
+  <object id="373" name="groundB" x="192" y="320" width="64" height="64"/>
+  <object id="374" name="groundB" x="192" y="160" width="64" height="64"/>
+  <object id="375" name="groundB" x="0" y="160" width="64" height="64"/>
+  <object id="376" name="groundA" x="64" y="96" width="32" height="32"/>
+  <object id="377" name="groundA" x="64" y="128" width="32" height="32"/>
+  <object id="378" name="groundA" x="160" y="96" width="32" height="32"/>
+  <object id="379" name="groundA" x="64" y="160" width="32" height="32"/>
+  <object id="380" name="groundA" x="64" y="192" width="32" height="32"/>
+  <object id="381" name="groundA" x="64" y="320" width="32" height="32"/>
+  <object id="382" name="groundA" x="64" y="352" width="32" height="32"/>
+  <object id="383" name="groundA" x="96" y="352" width="32" height="32"/>
+  <object id="384" name="groundA" x="128" y="352" width="32" height="32"/>
+  <object id="385" name="groundA" x="160" y="352" width="32" height="32"/>
+  <object id="386" name="groundA" x="160" y="320" width="32" height="32"/>
+ </objectgroup>
+</map>
