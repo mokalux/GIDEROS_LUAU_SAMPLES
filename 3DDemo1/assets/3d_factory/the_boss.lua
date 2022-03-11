@@ -100,11 +100,11 @@ function TheBoss:onEnterFrame(e)
 	self:setMatrix(matrix)
 	-- controls
 --[[
-	if self.isup and not self.isdown then self.body:applyForce(^>dx*force, 0, ^>dz*force)
-	elseif self.isdown and not self.isup then self.body:applyForce(-^>dx*force, 0, -^>dz*force)
+	if self.isup and not self.isdown then self.body:applyLocalForceAtCenterOfMass(^>dx*force, 0, ^>dz*force)
+	elseif self.isdown and not self.isup then self.body:applyLocalForceAtCenterOfMass(-^>dx*force, 0, -^>dz*force)
 	end
-	if self.isleft and not self.isright then self.body:applyTorque(0, -force*12, 0)
-	elseif self.isright and not self.isleft then self.body:applyTorque(0, force*12, 0)
+	if self.isleft and not self.isright then self.body:applyLocalTorque(0, -force*12, 0)
+	elseif self.isright and not self.isleft then self.body:applyLocalTorque(0, force*12, 0)
 	end
 ]]
 end
