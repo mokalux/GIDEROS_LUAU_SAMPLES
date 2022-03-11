@@ -67,24 +67,24 @@ function LevelX:onEnterFrame(e)
 	-- r3d physics simulation
 	self.world:step(e.deltaTime)
 	-- move player
-	local force = 0.8 * self.tiled_level.player1.body:getMass()
+	local force = 5 * self.tiled_level.player1.body:getMass()
 	-- position the player model along its body
 	self.tiled_level.player1:setMatrix(matrix)
 	-- controls
 	if self.tiled_level.player1.isup and not self.tiled_level.player1.isdown then
 --		D3Anim.setAnimation(self.tiled_level.player1.mesh, self.tiled_level.player1.animWalk.animations[2], "main", true, 0.5)
-		self.tiled_level.player1.body:applyForce(^>dx*force, 0, ^>dz*force)
+		self.tiled_level.player1.body:applyLocalForceAtCenterOfMass(0, 0, force)
 	elseif self.tiled_level.player1.isdown and not self.tiled_level.player1.isup then
-		self.tiled_level.player1.body:applyForce(-^>dx*force, 0, -^>dz*force)
+		self.tiled_level.player1.body:applyLocalForceAtCenterOfMass(0,0,-force)
 	end
 	if self.tiled_level.player1.isleft and not self.tiled_level.player1.isright then
-		self.tiled_level.player1.body:applyTorque(0, -6, 0)
+		self.tiled_level.player1.body:applyLocalTorque(0, -6, 0)
 	elseif self.tiled_level.player1.isright and not self.tiled_level.player1.isleft then
-		self.tiled_level.player1.body:applyTorque(0, 6, 0)
+		self.tiled_level.player1.body:applyLocalTorque(0, 6, 0)
 	end
 	if self.tiled_level.player1.isjump then
 		self.tiled_level.player1.isjump = false
-		self.tiled_level.player1.body:applyForce(0, 64*8, 0)
+		self.tiled_level.player1.body:applyLocalForceAtCenterOfMass(0, 64*8, 0)
 	end
 	-- the camera FPS style
 	local camx, camy, camz = matrix:getPosition()

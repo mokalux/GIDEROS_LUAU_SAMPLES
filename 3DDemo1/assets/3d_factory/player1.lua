@@ -92,18 +92,18 @@ function Player1:onEnterFrame(e)
 --[[
 	-- move player
 	local matrix = self.body:getTransform()
-	local force = 1.2 * self.body:getMass() -- 1
+	local force = 5 * self.body:getMass() -- 1
 	local ax, ay, az = matrix:transformPoint(0, 0, 0)
 	local bx, by, bz = matrix:transformPoint(0, 0, 1) -- 1 because by default the player is facing the camera
 	local dx, dy, dz = bx - ax, by - ay, bz - az
 	-- position the player model along its body
 	self:setMatrix(matrix)
 	-- controls
-	if self.isup and not self.isdown then self.body:applyForce(^>dx*force, 0, ^>dz*force)
-	elseif self.isdown and not self.isup then self.body:applyForce(-^>dx*force, 0, -^>dz*force)
+	if self.isup and not self.isdown then self.body:applyLocalForceAtCenterOfMass(0,0,force)
+	elseif self.isdown and not self.isup then self.body:applyLocalForceAtCenterOfMass(0,0,-force)
 	end
-	if self.isleft and not self.isright then self.body:applyTorque(0, -force*12, 0)
-	elseif self.isright and not self.isleft then self.body:applyTorque(0, force*12, 0)
+	if self.isleft and not self.isright then self.body:applyLocalTorque(0, -force*12, 0)
+	elseif self.isright and not self.isleft then self.body:applyLocalTorque(0, force*12, 0)
 	end
 ]]
 end
