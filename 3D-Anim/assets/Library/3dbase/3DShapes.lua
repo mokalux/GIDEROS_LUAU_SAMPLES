@@ -1,5 +1,4 @@
 local Mesh3D=Core.class(Mesh,function() return true end)
-
 Mesh3D.MODE_TEXTURE=1
 Mesh3D.MODE_LIGHTING=2 --ie normals
 Mesh3D.MODE_BUMP=4
@@ -10,6 +9,7 @@ Mesh3D.MODE_INSTANCED=32
 function Mesh3D:init()
 	self.mode=0
 end
+
 function Mesh3D:updateMode(set,clear)
 	local nm=(self.mode|(set or 0))&~(clear or 0)
 	if nm~=self.mode then
@@ -74,7 +74,8 @@ function Box:init(w,h,d)
 			9,10,11,9,11,12,
 			13,14,15,13,15,16,
 			17,18,19,17,19,20,
-			21,22,23,21,23,24}
+			21,22,23,21,23,24
+		}
 		Box.na={
 			0,0,-1,0,0,-1,0,0,-1,0,0,-1,
 			0,0,1,0,0,1,0,0,1,0,0,1,
@@ -82,16 +83,16 @@ function Box:init(w,h,d)
 			0,1,0,0,1,0,0,1,0,0,1,0,
 			-1,0,0,-1,0,0,-1,0,0,-1,0,0,
 			1,0,0,1,0,0,1,0,0,1,0,0,
-			}
+		}
 	end
 	self._va={
-			-w,-h,-d, w,-h,-d, w,h,-d, -w,h,-d,
-			-w,-h,d, w,-h,d, w,h,d, -w,h,d,
-			-w,-h,-d, w,-h,-d, w,-h,d, -w,-h,d,
-			-w,h,-d, w,h,-d, w,h,d, -w,h,d,
-			-w,-h,-d, -w,h,-d, -w,h,d, -w,-h,d,
-			w,-h,-d, w,h,-d, w,h,d, w,-h,d,
-		}
+		-w,-h,-d, w,-h,-d, w,h,-d, -w,h,-d,
+		-w,-h,d, w,-h,d, w,h,d, -w,h,d,
+		-w,-h,-d, w,-h,-d, w,-h,d, -w,-h,d,
+		-w,h,-d, w,h,-d, w,h,d, -w,h,d,
+		-w,-h,-d, -w,h,-d, -w,h,d, -w,-h,d,
+		w,-h,-d, w,h,-d, w,h,d, w,-h,d,
+	}
 	self:setGenericArray(3,Shader.DFLOAT,3,24,Box.na)
 	self:setVertexArray(self._va)
 	self:setIndexArray(Box.ia)
@@ -103,13 +104,13 @@ function Box:mapTexture(texture,sw,sh)
 	if texture then
 		local tw,th=texture:getWidth()*(sw or 1),texture:getHeight()*(sh or 1)
 		self:setTextureCoordinateArray{
-				0,0,tw,0,tw,th,0,th,
-				0,0,tw,0,tw,th,0,th,
-				0,0,tw,0,tw,th,0,th,
-				0,0,tw,0,tw,th,0,th,
-				0,0,tw,0,tw,th,0,th,
-				0,0,tw,0,tw,th,0,th,
-			}
+			0,0,tw,0,tw,th,0,th,
+			0,0,tw,0,tw,th,0,th,
+			0,0,tw,0,tw,th,0,th,
+			0,0,tw,0,tw,th,0,th,
+			0,0,tw,0,tw,th,0,th,
+			0,0,tw,0,tw,th,0,th,
+		}
 		self:updateMode(Mesh3D.MODE_TEXTURE,0)
 	else
 		self:updateMode(0,Mesh3D.MODE_TEXTURE)
@@ -239,7 +240,7 @@ function Cylinder:init(steps,r,h)
 		ia[ni]=i+1 ni+=1 ia[ni]=i+2 ni+=1 ia[ni]=i+5 ni+=1 --EDGE-TRI1
 		ia[ni]=i+2 ni+=1 ia[ni]=i+6 ni+=1 ia[ni]=i+5 ni+=1 --EDFE-TRI2
 	end
-	
+
 	self:setGenericArray(3,Shader.DFLOAT,3,#na//3,na)
 	self:setVertexArray(va)
 	self:setIndexArray(ia)
@@ -318,7 +319,7 @@ D3.checkCCW=function(v,i,f)
 		local s=""
 		for l=fi,fi+f[fn]-1 do
 			local ii=i[l]*3-2
-			local ax,ay,az=v[ii],v[ii+1],v[ii+2]		
+			local ax,ay,az=v[ii],v[ii+1],v[ii+2]
 			s=s..string.format("%d:[%f,%f,%f] ",i[l],ax,ay,az)
 		end
 		fi+=f[fn]

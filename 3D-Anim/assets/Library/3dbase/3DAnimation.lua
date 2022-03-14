@@ -50,7 +50,6 @@ function D3Anim.animate(m,a)
 		if not a.loop then return ta,true end
 		a.tm=os:timer()
 	end
-
 	return ta,false
 end
 
@@ -65,12 +64,12 @@ function D3Anim.tick()
 					table.insert(ares[bone],{ratio=ratio,mat={G3DFormat.srtToMatrix(srt):getMatrix()}})
 				end
 			end
-			local ao,ac,aor=nil,nil,1
+			local ao,al,ac,aor=nil,nil,nil,1
 			if anim.oldAnim then
 				local aratio=(os:timer()-anim.oldStart)/anim.oldLen
 				if aratio>=1 then aratio=1 end
 				if aratio<0 then aratio=0 end
-				local ao,al=D3Anim.animate(k,anim.oldAnim)
+				ao,al=D3Anim.animate(k,anim.oldAnim)
 				aor=1-aratio
 				if al or aratio>=1 then anim.oldAnim=nil end
 			end
@@ -102,7 +101,7 @@ function D3Anim.tick()
 end
 
 function D3Anim.setBonesPose(m,poses)
-	local m=m.bonesTop
+	m=m.bonesTop
 	local a=D3Anim._animatedModel[m]
 	for bone,srtl in pairs(poses) do
 		if #srtl>0 then

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project>
- <properties backgroundColor="#ffffff" windowHeight="0" build_number="1" scaleMode="3" html5_wasm="1" disableSplash="0" vsync="1" mouseToTouch="1" retinaDisplay="3" html5_pwa="0" architecture="7" html5_mem="256" html5_symbols="0" mouseTouchOrder="0" macos_bundle="com.yourdomain.yourapp-macos" atv_bundle="com.yourdomain.yourapp-atv" macos_category="5" html5_fbinstant="0" html5_fbload="100" logicalHeight="480" winrt_org="GiderosMobile" osx_bundle="com.yourdomain." osx_installerId="" splashScaleMode="0" osx_org="GiderosMobile" app_icon="" html5_pack="1" win_domain="giderosmobile.com" html5_host="" logicalWidth="320" ios_bundle="com.yourdomain." touchToMouse="1" html5_crash="" orientation="1" autorotation="0" version="1.0" version_code="1" iosDevice="0" encryptCode="0" mainluaOnly="0" encryptAssets="0" tv_icon="" exportMode="0" windowWidth="0" osx_category="5" winrt_package="com.yourdomain.yourapp" fps="60" osx_signingId="" splash_h_image="" splash_v_image="" osx_domain="giderosmobile.com" win_org="GiderosMobile" app_name="">
+ <properties ios_bundle="com.yourdomain." osx_domain="giderosmobile.com" winrt_org="GiderosMobile" version="1.0" windowWidth="0" windowHeight="0" encryptCode="0" osx_bundle="com.yourdomain." win_domain="giderosmobile.com" version_code="1" scaleMode="3" osx_installerId="" html5_pack="1" html5_symbols="0" retinaDisplay="3" tv_icon="" osx_category="5" html5_host="" iosDevice="0" autorotation="0" fps="60" build_number="1" logicalWidth="320" macos_category="5" vsync="1" mainluaOnly="0" osx_org="GiderosMobile" win_org="GiderosMobile" html5_fbload="100" macos_bundle="com.yourdomain.yourapp-macos" html5_crash="" logicalHeight="480" html5_wasm="1" touchToMouse="1" winrt_package="com.yourdomain.yourapp" orientation="0" backgroundColor="#ffffff" encryptAssets="0" html5_pwa="0" disableSplash="0" app_name="" app_icon="" osx_signingId="" splashScaleMode="0" splash_h_image="" exportMode="0" splash_v_image="" architecture="7" mouseTouchOrder="0" html5_mem="256" mouseToTouch="1" html5_fbinstant="0" atv_bundle="com.yourdomain.yourapp-atv">
   <imageScales/>
   <plugins>
-   <plugin enabled="1" name="JSON"/>
+   <plugin name="JSON" enabled="1"/>
   </plugins>
   <exports>
    <export name="APK">
@@ -40,6 +40,21 @@
    <file name="assets/Library/luashader/luac_loader.lua"/>
    <file name="assets/Library/luashader/luashader.lua"/>
    <file name="assets/Library/luashader/luau_codegen.lua"/>
+  </folder>
+  <folder name="oculus">
+   <folder name="jedi">
+    <file name="assets/Library/oculus/jedi/BC_L.png"/>
+    <file name="assets/Library/oculus/jedi/BC_R.png"/>
+    <file name="assets/Library/oculus/jedi/LICENSE.txt"/>
+    <file name="assets/Library/oculus/jedi/controllergui.txt"/>
+    <file name="assets/Library/oculus/jedi/jedi_left.bin"/>
+    <file name="assets/Library/oculus/jedi/jedi_left.gltf"/>
+    <file name="assets/Library/oculus/jedi/jedi_right.bin"/>
+    <file name="assets/Library/oculus/jedi/jedi_right.gltf"/>
+   </folder>
+   <file name="assets/Library/oculus/lhand.json"/>
+   <file name="assets/Library/oculus/oculus.lua"/>
+   <file name="assets/Library/oculus/rhand.json"/>
   </folder>
  </folder>
  <folder name="models">

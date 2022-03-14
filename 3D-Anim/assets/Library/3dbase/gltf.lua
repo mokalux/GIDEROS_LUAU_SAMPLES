@@ -15,9 +15,7 @@ function Gltf:getScene(i)
 	local root={}
 	root.type="group"
 	root.parts={}
-	for ni,n in ipairs(ns.nodes) do
-		root.parts["n"..ni]=self:getNode(n+1)
-	end
+	for ni,n in ipairs(ns.nodes) do root.parts["n"..ni]=self:getNode(n+1) end
 	return root
 end
 
@@ -36,14 +34,14 @@ function Gltf:getNode(i)
 				end
 				return 0
 			end
-			local m={ 
-					vertices=self:getBuffer(bufferIndex("POSITION")), 
-					texcoords=self:getBuffer(bufferIndex("TEXCOORD")), 
-					normals=self:getBuffer(bufferIndex("NORMAL")), 
-					indices=self:getBuffer(prim.indices+1,true), 
-					type="mesh",
-					material=self:getMaterial((prim.material or -1)+1),
-					}
+			local m={
+				vertices=self:getBuffer(bufferIndex("POSITION")), 
+				texcoords=self:getBuffer(bufferIndex("TEXCOORD")), 
+				normals=self:getBuffer(bufferIndex("NORMAL")), 
+				indices=self:getBuffer(prim.indices+1,true), 
+				type="mesh",
+				material=self:getMaterial((prim.material or -1)+1),
+			}
 			root.parts["p"..pi]=m
 		end
 	end
@@ -137,9 +135,7 @@ function Gltf:getBufferView(n,ext)
 				buf.data=Cryptography.unb64(buf.uri:sub(38))
 			end
 		end
-		if not buf.data then
-			buf.data=self:loadBuffer(bd.buffer+1,buf)
-		end
+		if not buf.data then buf.data=self:loadBuffer(bd.buffer+1,buf) end
 	end
 	gltfNum+=1
 	local bname="_gltf_"..gltfNum..(ext or "")
@@ -151,9 +147,7 @@ end
 function Gltf:getImage(n)
 	local bd=self.desc.images[n]
 	if not bd then return nil end
-	if bd.uri then
-		return self.path.."/"..bd.uri
-	end
+	if bd.uri then return self.path.."/"..bd.uri end
 	if bd.bufferView then
 		local iext=nil
 		if bd.mimeType=="image/jpeg" then iext=".jpg"
@@ -180,7 +174,7 @@ function Gltf:getMaterial(i)
 	if bd.pbrMetallicRoughness then
 		mat.kd=bd.pbrMetallicRoughness.baseColorFactor
 		if mat.kd then
-			for i=1,4 do mat.kd[i]=mat.kd[i]^.3 end		
+			for i=1,4 do mat.kd[i]=mat.kd[i]^.3 end
 		end
 		local td=bd.pbrMetallicRoughness.baseColorTexture
 		if td and td.index then
@@ -191,7 +185,7 @@ function Gltf:getMaterial(i)
 	return mat
 end
 
--- ***********************************************************
+-- **********************************************************
 Glb=Core.class(Gltf,function (path,name) return path,nil end)
 
 function Glb:init(path,name)

@@ -3,9 +3,7 @@ D3=D3 or {}
 local slang=Shader.getShaderLanguage()
 
 function D3._VLUA_Shader (POSITION,COLOR,TEXCOORD,NORMAL,ANIMIDX,ANIMWEIGHT,INSTMATA,INSTMATB,INSTMATC,INSTMATD) : Shader
-	if OPT_TEXTURED then
-		texCoord=TEXCOORD
-	end
+	if OPT_TEXTURED then texCoord=TEXCOORD end
 	local pos = hF4(POSITION,1.0)
 	local norm = hF4(NORMAL,0.0)
 	--[[
@@ -33,12 +31,10 @@ function D3._VLUA_Shader (POSITION,COLOR,TEXCOORD,NORMAL,ANIMIDX,ANIMWEIGHT,INST
 		pos=hF4(npos.xyz,1.0);
 		norm=nnorm;
 	end
-	
+
 	position = (g_MVMatrix*pos).xyz;
 	normalCoord = normalize((g_NMatrix*hF4(norm.xyz,0)).xyz);
-	if OPT_SHADOWS then
-		lightSpace = g_LMatrix*hF4(position,1.0);
-	end
+	if OPT_SHADOWS then lightSpace = g_LMatrix*hF4(position,1.0); end
 	return g_MVPMatrix * pos;
 end
 
@@ -146,7 +142,7 @@ function D3._FLUA_Shader() : Shader
 	end
 	local color1 = lF3(0.5, 0.5, 0.5)
 	local normal = normalize(normalCoord)
-	
+
 	local lightDir = normalize(lightPos.xyz - position.xyz)
 	local viewDir = normalize(cameraPos.xyz-position.xyz)
 	if OPT_NORMMAP then
@@ -157,9 +153,7 @@ function D3._FLUA_Shader() : Shader
 	local spec =0.0
     -- calculate shadow
 	local shadow=1.0
-	if OPT_SHADOWS then
-		shadow = ShadowCalculation(lightSpace,FragCoord)
-	end
+	if OPT_SHADOWS then shadow = ShadowCalculation(lightSpace,FragCoord) end
 	if (diff>0.0) then
 		local nh = max(0.0, dot(reflect(-lightDir,normal),viewDir))
 		spec = pow(nh, 32.0)*shadow
@@ -177,7 +171,7 @@ D3._FLUA_Shader_FDEF={
 			{name="N", type="hF3"},
 			{name="p", type="hF3"},
 			{name="uv", type="hF2"},
-		},
+		}, 
 	},
 	--vec3 perturb_normal( vec3 N, vec3 V, vec2 texcoord )
 	{name="perturb_normal", rtype="hF3", acount=3,
@@ -185,13 +179,13 @@ D3._FLUA_Shader_FDEF={
 			{name="N", type="hF3"},
 			{name="V", type="hF3"},
 			{name="texcoord", type="hF2"},
-		},
+		}, 
 	},
 	{name="ShadowCalculation", rtype="hF1", acount=2,
 		args={
 			{name="fragPosLightSpace", type="hF4"}, 
 			{name="fragCoord", type="hF4"},
-		},
+		}, 
 	},
 }
 
@@ -433,6 +427,7 @@ void main()
 	gl_FragColor = vec4(color0.rgb * diff + color1 * spec, color0.a);
 }
 ]]
+
 elseif slang=="msl" then
 D3._V_Shader=
 [=[

@@ -322,8 +322,8 @@ function Shader.lua_glsl(vf,ff,opt,uniforms,attrs,varying,funcs,const)
 	_code=_code.."}"
 	
 	local _vshader=_code
-
-	local outVariable="gl_FragColor"
+	
+	outVariable="gl_FragColor"
 	if isGLSL300 then
 		outVariable="_gl_FragColor"
 	end
@@ -538,9 +538,10 @@ fragment half4 fmain(PVertex vert [[stage_in]],
 	_code=_code..mainCode.."}\n"
 
 	local _fshader=_code
-
-	return _vshader,_fshader
+	
+	return _vshader,_fshader	
 end
+
 
 local function ismatrix(v)
 	return (tonumber(v.vtype:sub(3))>=22)
@@ -723,5 +724,5 @@ half4 PShader(%s) : SV_TARGET
 	
 	local _fshader=_code
 	
-	return _vshader,_fshader
+	return _vshader,_fshader	
 end
