@@ -30,10 +30,10 @@ local function genEffect(vshader,fshader)
 end
 
 local function makeEffect(name,vshader,fshader)
-	shaderCache[name]={ 
-		vshader=vshader, 
+	shaderCache[name]={
+		vshader=vshader,
 		fshader=fshader
-		}
+	}
 end
 
 local function getEffect(name)
@@ -50,52 +50,52 @@ local function vertexShader(vVertex,vColor,vTexCoord) : Shader
 	return vMatrix*vertex
 end
 
-
+-- ************************
 makeEffect("Blur",
 	vertexShader,
 	function () : Shader
-	 local frag=lF4(0,0,0,0)
-	 local frad=fAmount.x
-	 local ext=2*frad+1
-	 local dir=fTextureInfo.zw*fDirection
-	 local tc=fTexCoord-dir*frad
-	 for v=0,19 do
-		if v<hI1(ext) then
+		local frag=lF4(0,0,0,0)
+		local frad=fAmount.x
+		local ext=2*frad+1
+		local dir=fTextureInfo.zw*fDirection
+		local tc=fTexCoord-dir*frad
+		for v=0,19 do
+			if v<hI1(ext) then
 			frag=frag+texture2D(fTexture, tc)
+			end
+			tc+=dir
 		end
-		tc+=dir
-	 end
-	 frag=(frag/ext)*lF4(fColor)
-	 if (frag.a==0.0) then discard() end
-	 return frag
+		frag=(frag/ext)*lF4(fColor)
+		if (frag.a==0.0) then discard() end
+		return frag
 	end)
 
 makeEffect("BloomExtract",
 	vertexShader,
 	function () : Shader
-	 local c=texture2D(fTexture, fTexCoord)
-	 local BloomThreshold=lF1(fAmount.x)
-	 c=clamp((c-BloomThreshold)/(1.0-BloomThreshold), 0.0, 1.0)
-	 c.a=1
-	 return c
+		local c=texture2D(fTexture, fTexCoord)
+		local BloomThreshold=lF1(fAmount.x)
+		c=clamp((c-BloomThreshold)/(1.0-BloomThreshold), 0.0, 1.0)
+		c.a=1
+		return c
 	end)
 
 makeEffect("BloomCombine",
 	vertexShader,
 	function () : Shader
-	 local base=texture2D(fTexture, fTexCoord)*fAmount.x
-	 local bloom=texture2D(fTexture2, fTexCoord)*fAmount.y
-	 base *= (lF4(1.0) - clamp(bloom,0.0,1.0))
-	 base+=bloom
-	 return base
+		local base=texture2D(fTexture, fTexCoord)*fAmount.x
+		local bloom=texture2D(fTexture2, fTexCoord)*fAmount.y
+		base *= (lF4(1.0) - clamp(bloom,0.0,1.0))
+		base+=bloom
+		return base
 	end)
 
-
+-- ************************
 ShaderEffect=Core.class(Object)
 function ShaderEffect:init()
 	self.applied={}
-    local weak = { __mode="k" }
-    setmetatable(self.applied, weak)
+	local weak = { __mode="k" }
+	setmetatable(self.applied, weak)
 end
 
 function ShaderEffect:apply(sprite,mode)
@@ -119,7 +119,7 @@ end
 function ShaderEffect:applyParametersTo(sprite)
 end
 
-
+-- ************************
 local BloomEffect=Core.class(ShaderEffect)
 ShaderEffect.Bloom=BloomEffect
 
@@ -133,7 +133,7 @@ function BloomEffect:init(width,height,resolution)
 		pxform=Matrix.new()
 		pxform:setScale(1/resolution)
 	end
-	
+
 	local rt1=RenderTarget.new(width,height)
 	local rt2=RenderTarget.new(width,height)
 	local rt3=RenderTarget.new(width,height)
@@ -163,6 +163,7 @@ function BloomEffect:applyParametersTo(sprite)
 	sprite:setEffectConstant(4,"fAmount",Shader.CFLOAT2,1,2,self.glow)
 end
 
+-- ************************
 local BlurEffect=Core.class(ShaderEffect)
 ShaderEffect.Blur=BlurEffect
 
@@ -183,7 +184,7 @@ function BlurEffect:init(width,height,resolution)
 		{ buffer=rt1, shader=getEffect("Blur"), transform=xform, autoBuffer=(width==0)},
 		{ buffer=rt2, shader=getEffect("Blur"), postTransform=pxform, autoBuffer=(width==0)},
 	}
-	
+
 	self.radius=7
 end
 
@@ -199,6 +200,7 @@ function BlurEffect:applyParametersTo(sprite)
 	sprite:setEffectConstant(2,"fAmount",Shader.CFLOAT2,1,self.radius,0)
 end
 
+-- ************************
 local ShadowEffect=Core.class(ShaderEffect)
 ShaderEffect.Shadow=ShadowEffect
 
@@ -210,10 +212,10 @@ makeEffect("ShadowExtract",
 		return vMatrix*vertex
 	end,
 	function () : Shader
-	 local c=texture2D(fTexture, fTexCoord)
-	 c.a*=fQuad.a
-	 c.rgb=lF3(fQuad.r*c.a,fQuad.g*c.a,fQuad.b*c.a)
-	 return c
+		local c=texture2D(fTexture, fTexCoord)
+		c.a*=fQuad.a
+		c.rgb=lF3(fQuad.r*c.a,fQuad.g*c.a,fQuad.b*c.a)
+		return c
 	end)
 
 makeEffect("ShadowCombine",
@@ -224,9 +226,9 @@ makeEffect("ShadowCombine",
 		return vMatrix*vertex
 	end,
 	function () : Shader
-	 local base=texture2D(fTexture, fTexCoord)
-	 local sh=texture2D(fTexture2, fTexCoord)
-	 return mix(base,sh,1-base.a)
+		local base=texture2D(fTexture, fTexCoord)
+		local sh=texture2D(fTexture2, fTexCoord)
+		return mix(base,sh,1-base.a)
 	end)
 
 function ShadowEffect:init(params)

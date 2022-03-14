@@ -17,8 +17,7 @@ if slang=="glsl" then
 	if debug then print(json.encode(Shader.extensions)) end
 end
 
-local LightingShaderAttrs=
-{
+local LightingShaderAttrs={
 {name="POSITION",type=Shader.DFLOAT,amult=3,slot=0,offset=0},
 {name="vColor",type=Shader.DUBYTE,amult=0,slot=1,offset=0}, --Placeholder: mult=0
 {name="TEXCOORD",type=Shader.DFLOAT,amult=2,slot=2,offset=0,code="t"},
@@ -62,10 +61,9 @@ local LightingShaderVarying={
 local function ShaderFilter(t,code)
 	local o={}
 	for _,l in ipairs(t) do
-		if l.code==nil or code:find(l.code) then
-			o[#o+1]=l
-		end
+		if l.code==nil or code:find(l.code) then o[#o+1]=l end
 	end
+
 	return o
 end
 
@@ -73,14 +71,14 @@ Lighting._shaders={}
 Lighting.getShader=function(code)
 	local cmap={
 		{"t","TEXTURED",true},
-		{"s","SHADOWS",isES3Level and ((slang~="glsl") or 
+		{"s","SHADOWS",isES3Level and ((slang~="glsl") or
 --			isES3 or
-			Shader.extensions.GL_EXT_shadow_samplers or 
+			Shader.extensions.GL_EXT_shadow_samplers or
 			Shader.extensions.GL_EXT_shadow_funcs)},
 		{"n","NORMMAP",true},
 		{"i","INSTANCED",true},
 		{"a","ANIMATED",true},
-	}	
+	}
 	local lcode,ccode,acode="","",""
 	local lconst={}
 	for _,k in ipairs(cmap) do
@@ -99,7 +97,7 @@ Lighting.getShader=function(code)
 	if D3._V_Shader then
 		if not Lighting._shaders[lcode] then
 			for _,a in ipairs(LightingShaderAttrs) do
-				if not a.code or code:find(a.code) then a.mult=a.amult else a.mult=0 end	
+				if not a.code or code:find(a.code) then a.mult=a.amult else a.mult=0 end
 			end
 			--[[
 			v=Shader.new(
@@ -109,7 +107,7 @@ Lighting.getShader=function(code)
 				LightingShaderConstants,LightingShaderAttrs)
 			]]
 			local csts=ShaderFilter(LightingShaderConstants,acode)
-			v=Shader.lua(
+			local v=Shader.lua(
 				D3._VLUA_Shader,
 				D3._FLUA_Shader,
 				0,
@@ -118,7 +116,7 @@ Lighting.getShader=function(code)
 				ShaderFilter(LightingShaderVarying,acode),
 				D3._FLUA_Shader_FDEF,
 				lconst
-				)
+			)
 
 			v:setConstant("lightPos",Shader.CFLOAT4,1,Lighting.light[1],Lighting.light[2],Lighting.light[3],1)
 			v:setConstant("ambient",Shader.CFLOAT,1,Lighting.light[4])
@@ -136,19 +134,21 @@ Lighting.getShader=function(code)
 			end
 		end
 	end
+
 	return Lighting._shaders[lcode],lcode
 end
 
 Lighting.prepareShader=function(v)
-  if D3._V_Shader then
-    if not Lighting._shaders[v] then
-      v:setConstant("lightPos",Shader.CFLOAT4,1,Lighting.light[1],Lighting.light[2],Lighting.light[3],1)
-      v:setConstant("ambient",Shader.CFLOAT,1,Lighting.light[4])
-      v:setConstant("cameraPos",Shader.CFLOAT4,1,Lighting.camera[1],Lighting.camera[2],Lighting.camera[3],1)
-      Lighting._shaders[v]=v
-    end
-  end
-  return Lighting._shaders[v],v
+	if D3._V_Shader then
+		if not Lighting._shaders[v] then
+		v:setConstant("lightPos",Shader.CFLOAT4,1,Lighting.light[1],Lighting.light[2],Lighting.light[3],1)
+		v:setConstant("ambient",Shader.CFLOAT,1,Lighting.light[4])
+		v:setConstant("cameraPos",Shader.CFLOAT4,1,Lighting.camera[1],Lighting.camera[2],Lighting.camera[3],1)
+		Lighting._shaders[v]=v
+		end
+	end
+
+	return Lighting._shaders[v],v
 end
 
 function Lighting.setLight(x,y,z,a)
@@ -158,6 +158,7 @@ function Lighting.setLight(x,y,z,a)
 		v:setConstant("ambient",Shader.CFLOAT,1,a)
 	end
 end
+
 function Lighting.setLightTarget(x,y,z,d,f)
 	Lighting.lightTarget={x,y,z,d or 50,f or 120}
 end
@@ -219,6 +220,7 @@ function Lighting.getShadowMap(swap)
 			Lighting.shadowrt=Lighting.shadowrt1
 		end
 	end
+
 	return Lighting.shadowrt
 end
 
@@ -231,7 +233,8 @@ function Lighting.computeShadows(scene)
 	local view=Lighting.shadowview
 	view:setContent(scene)
 	view:setProjection(p)
-	view:lookAt(Lighting.light[1],Lighting.light[2],Lighting.light[3],Lighting.lightTarget[1],Lighting.lightTarget[2],Lighting.lightTarget[3],0,1,0)
+	view:lookAt(Lighting.light[1],Lighting.light[2],Lighting.light[3],
+		Lighting.lightTarget[1],Lighting.lightTarget[2],Lighting.lightTarget[3],0,1,0)
 	p:multiply(view:getTransform())
 	for k,v in pairs(Lighting._shaders) do
 		v:setConstant("g_LMatrix",Shader.CMATRIX,1,p:getMatrix())

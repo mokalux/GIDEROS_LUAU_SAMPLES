@@ -38,7 +38,7 @@ local function parsemtl(mtls,path,file)
 	end
 	local mtl={ texturew=0, textureh=0 }
 	for line in io.lines(path.."/"..file) do
-		fld = fld:gsub("  ", " ")
+		fld = fld:gsub("  ", " ") -- fix for blender 3.1 adding double space in the .mtl file
 		fld=Split(line," ",10)
 		for i=1,#fld,1 do fld[i]=string.gsub(fld[i], "\r", "") end
 		if (fld[2]~=nil) then fld[2]=string.gsub(fld[2], "\r", "") end

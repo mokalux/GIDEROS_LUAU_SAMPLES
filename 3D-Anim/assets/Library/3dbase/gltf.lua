@@ -89,14 +89,10 @@ GL_UNSIGNED_INT64_AMD (35778)
 GL_UNSIGNED_SHORT (5123)
 ]]
 	local cl=0
-	if bd.componentType==5126 then
-		cl=4
-	elseif bd.componentType==5123 then
-		cl=2
-	elseif bd.componentType==5125 then
-		cl=4
-	else
-		assert(false,"Unhandled componentType:"..bd.componentType)
+	if bd.componentType==5126 then cl=4
+	elseif bd.componentType==5123 then cl=2
+	elseif bd.componentType==5125 then cl=4
+	else assert(false,"Unhandled componentType:"..bd.componentType)
 	end
 	if stride>0 then stride=stride-cl*bm end
 	local br=bd.byteOffset or 0
@@ -122,7 +118,7 @@ GL_UNSIGNED_SHORT (5123)
 		end
 		br+=stride
 	end
-	
+
 	--[[if (os:clock()-tm)>.1 then
 		print(i,json.encode(bd)," in ",os:clock()-tm)
 	end]]
@@ -195,23 +191,22 @@ function Gltf:getMaterial(i)
 	return mat
 end
 
+-- ***********************************************************
 Glb=Core.class(Gltf,function (path,name) return path,nil end)
 
 function Glb:init(path,name)
 	local fn=name
-	if path then
-		fn=path.."/"..name
-	end
+	if path then fn=path.."/"..name end
 	local f=io.open(fn)
 	assert(f,"File not found:"..fn)
 	self.binData=f:read("*a")
 	f:close()
-	
+
 	local hdr=self.binData:decodeValue("iii")
 	assert(hdr[1]==0x46546c67,"Not a glb file"..name)
 	local length=hdr[3]-12
 	local l=13
-	
+
 	local chunks={}
 	while length>=8 do
 		local chdr=self.binData:sub(l,l+7):decodeValue("ii")

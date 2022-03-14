@@ -89,22 +89,13 @@ function loadGdx(file,imtls)
 				local bd=attrs.bw0.d
 				di[i*4-3]=bd[i*2-1]
 				dw[i*4-3]=bd[i*2]
-				if attrs.bw1 then
-					bd=attrs.bw1.d
-					di[i*4-2]=bd[i*2-1]
-					dw[i*4-2]=bd[i*2]
+				if attrs.bw1 then bd=attrs.bw1.d di[i*4-2]=bd[i*2-1] dw[i*4-2]=bd[i*2]
 				else di[i*4-2]=0 dw[i*4-2]=0
 				end
-				if attrs.bw2 then
-					bd=attrs.bw2.d
-					di[i*4-1]=bd[i*2-1]
-					dw[i*4-1]=bd[i*2]
+				if attrs.bw2 then bd=attrs.bw2.d di[i*4-1]=bd[i*2-1] dw[i*4-1]=bd[i*2]
 				else di[i*4-1]=0 dw[i*4-1]=0
 				end
-				if attrs.bw3 then
-					bd=attrs.bw3.d
-					di[i*4]=bd[i*2-1]
-					dw[i*4]=bd[i*2]
+				if attrs.bw3 then bd=attrs.bw3.d di[i*4]=bd[i*2-1] dw[i*4]=bd[i*2]
 				else di[i*4]=0 dw[i*4]=0
 				end
 			end

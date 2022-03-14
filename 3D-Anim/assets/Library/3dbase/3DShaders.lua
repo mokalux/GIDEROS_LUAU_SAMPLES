@@ -152,7 +152,7 @@ function D3._FLUA_Shader() : Shader
 	if OPT_NORMMAP then
 		normal=perturb_normal(normal, viewDir, texCoord)
 	end
-	
+
 	local diff = max(0.0, dot(normal, lightDir))
 	local spec =0.0
     -- calculate shadow
@@ -169,7 +169,7 @@ function D3._FLUA_Shader() : Shader
 	local frag = lF4(color0.rgb * diff + color1 * spec, color0.a)
 	return frag
 end
-	
+
 D3._FLUA_Shader_FDEF={
 	--mat3 cotangent_frame(vec3 N, vec3 p, vec2 uv)
 	{name="cotangent_frame", rtype="hF33", acount=3,
@@ -177,7 +177,7 @@ D3._FLUA_Shader_FDEF={
 			{name="N", type="hF3"},
 			{name="p", type="hF3"},
 			{name="uv", type="hF2"},
-		}, 
+		},
 	},
 	--vec3 perturb_normal( vec3 N, vec3 V, vec2 texcoord )
 	{name="perturb_normal", rtype="hF3", acount=3,
@@ -185,18 +185,15 @@ D3._FLUA_Shader_FDEF={
 			{name="N", type="hF3"},
 			{name="V", type="hF3"},
 			{name="texcoord", type="hF2"},
-		}, 
+		},
 	},
 	{name="ShadowCalculation", rtype="hF1", acount=2,
 		args={
 			{name="fragPosLightSpace", type="hF4"}, 
 			{name="fragCoord", type="hF4"},
-		}, 
+		},
 	},
 }
-
-
-
 
 
 
@@ -675,7 +672,6 @@ fragment half4 fmain(
 ]=]
 
 elseif slang=="hlsl" then
-
 D3._V_Shader=
 [=[
 

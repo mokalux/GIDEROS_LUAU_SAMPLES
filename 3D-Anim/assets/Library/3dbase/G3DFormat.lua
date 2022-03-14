@@ -57,7 +57,7 @@ function G3DFormat.srtToMatrix(v,rev)
 	else
 		if v.s then mt:scale(v.s[1],v.s[2],v.s[3]) end
 	end
-	if v.r then 
+	if v.r then
 		local X,Y,Z,W=v.r[1],v.r[2],v.r[3],v.r[4]
 		local L=(X*X+Y*Y+Z*Z+W*W)^0.5
 		--print(X,Y,Z,W,L)

@@ -1,10 +1,12 @@
 local Mesh3D=Core.class(Mesh,function() return true end)
+
 Mesh3D.MODE_TEXTURE=1
 Mesh3D.MODE_LIGHTING=2 --ie normals
 Mesh3D.MODE_BUMP=4
 Mesh3D.MODE_SHADOW=8
 Mesh3D.MODE_ANIMATED=16
 Mesh3D.MODE_INSTANCED=32
+
 function Mesh3D:init()
 	self.mode=0
 end
@@ -14,21 +16,11 @@ function Mesh3D:updateMode(set,clear)
 		self.mode=nm
 		if (nm&Mesh3D.MODE_LIGHTING)>0 then
 			local tc=""
-			if (nm&Mesh3D.MODE_TEXTURE)>0 then
-				tc=tc.."t"
-			end
-			if (nm&Mesh3D.MODE_SHADOW)>0 then
-				tc=tc.."s"
-			end
-			if (nm&Mesh3D.MODE_BUMP)>0 then
-				tc=tc.."n"
-			end
-			if (nm&Mesh3D.MODE_ANIMATED)>0 then
-				tc=tc.."a"
-			end
-			if (nm&Mesh3D.MODE_INSTANCED)>0 then
-				tc=tc.."i"
-			end
+			if (nm&Mesh3D.MODE_TEXTURE)>0 then tc=tc.."t" end
+			if (nm&Mesh3D.MODE_SHADOW)>0 then tc=tc.."s" end
+			if (nm&Mesh3D.MODE_BUMP)>0 then tc=tc.."n" end
+			if (nm&Mesh3D.MODE_ANIMATED)>0 then tc=tc.."a" end
+			if (nm&Mesh3D.MODE_INSTANCED)>0 then tc=tc.."i" end
 			Lighting.setSpriteMode(self,tc)
 		end
 	end
@@ -37,10 +29,8 @@ end
 function Mesh3D:setInstanceCount(n)
 	self._im1,self._im2,self._im3,self._im4=self._im1 or {}, self._im2 or {},self._im3 or {},self._im4 or {}
 	self._icount=n
-	if n==0 then
-		self:updateMode(0,Mesh3D.MODE_INSTANCED)
-	else
-		self:updateMode(Mesh3D.MODE_INSTANCED,0)
+	if n==0 then self:updateMode(0,Mesh3D.MODE_INSTANCED)
+	else self:updateMode(Mesh3D.MODE_INSTANCED,0)
 	end
 	Mesh.setInstanceCount(self,n)
 end
@@ -67,9 +57,12 @@ function Mesh3D:updateInstances()
 	self:setGenericArray(8,Shader.DFLOAT,4,self._icount,self._im3)
 	self:setGenericArray(9,Shader.DFLOAT,4,self._icount,self._im4)
 end
+
 function Mesh3D:setLocalMatrix(m)
 	self:setShaderConstant("InstanceMatrix",Shader.CMATRIX,1,m:getMatrix())
 end
+
+-- **************************
 --Unit Cube
 local Box=Core.class(Mesh3D)
 function Box:init(w,h,d)
@@ -129,6 +122,7 @@ function Box:getCollisionShape()
 	return self._r3dshape
 end
 
+-- **************************
 --Unit Sphere
 local Sphere=Core.class(Mesh3D)
 function Sphere:init(steps,rad)
@@ -201,6 +195,7 @@ function Sphere:getCollisionShape()
 	return self._r3dshape
 end
 
+-- **************************
 --Unit Cylinder along Y axis
 local Cylinder=Core.class(Mesh3D)
 function Cylinder:init(steps,r,h)
@@ -300,6 +295,7 @@ function Cylinder:getCollisionShape()
 	return self._r3dshape
 end
 
+-- **************************
 local Group3D=Core.class(Sprite)
 function Group3D:updateMode(set,clear)
       for _,v in pairs(self.objs) do
@@ -307,6 +303,7 @@ function Group3D:updateMode(set,clear)
       end
 end
 
+-- **************************
 D3=D3 or {}
 D3.Group=Group3D
 D3.Mesh=Mesh3D
@@ -314,6 +311,7 @@ D3.Cube=Box
 D3.Sphere=Sphere
 D3.Cylinder=Cylinder
 
+-- **************************
 D3.checkCCW=function(v,i,f)
 	local fi=1
 	for fn=1,#f do
