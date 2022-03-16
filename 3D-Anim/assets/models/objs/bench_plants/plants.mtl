@@ -1,0 +1,14 @@
+# Blender 3.1.0 MTL File: 'cottage_vgood_gideros.blend'
+# www.blender.org
+
+newmtl grass
+Ns 20.000006
+Ka 0.050000 0.050000 0.050000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd  textures\grass_05.png
+map_d  textures\grass_05.png
