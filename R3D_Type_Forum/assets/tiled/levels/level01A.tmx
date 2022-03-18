@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.5" tiledversion="2021.03.23" orientation="orthogonal" renderorder="right-down" width="8" height="24" tilewidth="32" tileheight="32" infinite="0" nextlayerid="16" nextobjectid="494">
+ <editorsettings>
+  <export target="level01A.lua" format="lua"/>
+ </editorsettings>
+ <objectgroup color="#005500" id="15" name="OBJECTS">
+  <object id="463" name="obj1" x="192" y="672" width="8" height="8"/>
+ </objectgroup>
+ <objectgroup color="#aa0000" id="14" name="PLAYABLE">
+  <object id="459" name="player1" x="64" y="736" width="8" height="8" rotation="180"/>
+ </objectgroup>
+ <objectgroup color="#aa5500" id="11" name="SHAPES">
+  <object id="449" name="wall01" x="0" y="512" width="32" height="256"/>
+  <object id="482" name="wall01" x="224" y="512" width="32" height="256"/>
+  <object id="483" name="wall01" x="96" y="736" width="64" height="32"/>
+  <object id="491" name="wall01" x="64" y="576" width="32" height="32"/>
+  <object id="492" name="wall01" x="160" y="576" width="32" height="32"/>
+  <object id="493" name="wall01" x="96" y="448" width="64" height="96"/>
+ </objectgroup>
+ <objectgroup color="#000000" id="12" name="GROUNDS" locked="1">
+  <object id="386" name="groundA" x="0" y="0" width="256" height="768"/>
+ </objectgroup>
+</map>
