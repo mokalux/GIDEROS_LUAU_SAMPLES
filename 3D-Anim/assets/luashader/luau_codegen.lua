@@ -88,7 +88,6 @@ end
 function OPS:ETIN(name)
 	if self.skipping then return self:skipOp() end
 	local expr=self:genOp()
-	
 	return { value=expr.value.."."..name, vtype=checkSwizzling(expr,name) }
 end
 

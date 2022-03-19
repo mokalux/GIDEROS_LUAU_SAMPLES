@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project>
- <properties architecture="7" osx_category="5" ios_bundle="com.yourdomain." iosDevice="0" backgroundColor="#ffffff" encryptAssets="0" touchToMouse="1" logicalWidth="320" html5_symbols="0" disableSplash="0" win_org="GiderosMobile" html5_pack="1" winrt_package="com.yourdomain.yourapp" fps="60" logicalHeight="480" osx_bundle="com.yourdomain." version_code="1" mouseToTouch="1" encryptCode="0" macos_bundle="com.yourdomain.yourapp-macos" html5_fbload="100" splash_h_image="" scaleMode="3" mouseTouchOrder="0" html5_fbinstant="0" osx_org="GiderosMobile" osx_domain="giderosmobile.com" splashScaleMode="0" osx_installerId="" html5_mem="256" orientation="0" html5_host="" win_domain="giderosmobile.com" autorotation="0" html5_crash="" vsync="0" build_number="1" winrt_org="GiderosMobile" html5_pwa="0" mainluaOnly="0" retinaDisplay="3" atv_bundle="com.yourdomain.yourapp-atv" macos_category="5" app_icon="" tv_icon="" windowWidth="0" windowHeight="0" version="1.0" osx_signingId="" exportMode="0" html5_wasm="1" splash_v_image="" app_name="">
+ <properties fps="60" windowHeight="0" autorotation="0" backgroundColor="#ffffff" atv_bundle="com.yourdomain.yourapp-atv" html5_symbols="0" osx_domain="giderosmobile.com" splash_h_image="" architecture="7" version="1.0" ios_bundle="com.yourdomain." app_name="" html5_host="" macos_bundle="com.yourdomain.yourapp-macos" vsync="0" html5_pack="1" iosDevice="0" tv_icon="" win_domain="giderosmobile.com" html5_fbinstant="0" html5_pwa="0" logicalHeight="480" build_number="1" macos_category="5" splash_v_image="" osx_org="GiderosMobile" mouseTouchOrder="0" osx_category="5" mainluaOnly="0" scaleMode="3" touchToMouse="1" osx_installerId="" orientation="0" exportMode="0" winrt_org="GiderosMobile" encryptCode="0" disableSplash="0" splashScaleMode="0" encryptAssets="0" app_icon="" mouseToTouch="1" osx_signingId="" logicalWidth="320" winrt_package="com.yourdomain.yourapp" html5_wasm="1" windowWidth="0" retinaDisplay="3" html5_crash="" version_code="1" win_org="GiderosMobile" html5_mem="256" html5_fbload="100" osx_bundle="com.yourdomain.">
   <imageScales/>
   <plugins>
    <plugin name="JSON" enabled="1"/>
   </plugins>
   <exports>
    <export name="APK">
-    <property value="" name="androidPath"/>
-    <property value="" name="androidSdk"/>
-    <property value="26" name="androidTarget"/>
-    <property value="" name="androidTools"/>
-    <property value="1" name="buildAab"/>
-    <property value="0" name="buildApk"/>
-    <property value="0" name="deployApk"/>
-    <property value="" name="javaPath"/>
-    <property value="" name="keyAlias"/>
-    <property value="" name="keyStore"/>
-    <property value="com.yourdomain.yourapp" name="packageName"/>
-    <property value="0" name="timestampApk"/>
+    <property name="androidPath" value=""/>
+    <property name="androidSdk" value=""/>
+    <property name="androidTarget" value="26"/>
+    <property name="androidTools" value=""/>
+    <property name="buildAab" value="1"/>
+    <property name="buildApk" value="0"/>
+    <property name="deployApk" value="0"/>
+    <property name="javaPath" value=""/>
+    <property name="keyAlias" value=""/>
+    <property name="keyStore" value=""/>
+    <property name="packageName" value="com.yourdomain.yourapp"/>
+    <property name="timestampApk" value="0"/>
    </export>
   </exports>
  </properties>
@@ -48,23 +48,20 @@
    <file name="assets/models/characterLargeFemale/walk.json"/>
   </folder>
   <folder name="glbs">
+   <file name="assets/models/glbs/_please_read.txt"/>
    <file name="assets/models/glbs/grass.glb"/>
-   <file name="assets/models/glbs/grass_anim.glb"/>
-   <file name="assets/models/glbs/toman_kirilov_shroomz_gras.glb"/>
+   <file name="assets/models/glbs/shrooms.glb"/>
   </folder>
   <folder name="objs">
-   <folder name="bench_plants">
+   <folder name="bench">
     <folder name="textures">
-     <file name="assets/models/objs/bench_plants/textures/branch_Base_Color.png"/>
-     <file name="assets/models/objs/bench_plants/textures/branch_Metallic.png"/>
-     <file name="assets/models/objs/bench_plants/textures/branch_Normal_OpenGL.png"/>
-     <file name="assets/models/objs/bench_plants/textures/branch_Roughness.png"/>
-     <file name="assets/models/objs/bench_plants/textures/grass_05.png"/>
+     <file name="assets/models/objs/bench/textures/branch_Base_Color.png"/>
+     <file name="assets/models/objs/bench/textures/branch_Metallic.png"/>
+     <file name="assets/models/objs/bench/textures/branch_Normal_OpenGL.png"/>
+     <file name="assets/models/objs/bench/textures/branch_Roughness.png"/>
     </folder>
-    <file name="assets/models/objs/bench_plants/bench.mtl"/>
-    <file name="assets/models/objs/bench_plants/bench.obj"/>
-    <file name="assets/models/objs/bench_plants/plants.mtl"/>
-    <file name="assets/models/objs/bench_plants/plants.obj"/>
+    <file name="assets/models/objs/bench/bench.mtl"/>
+    <file name="assets/models/objs/bench/bench.obj"/>
    </folder>
    <folder name="tree">
     <folder name="tex">

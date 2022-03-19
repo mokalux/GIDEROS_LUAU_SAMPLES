@@ -153,7 +153,7 @@ function G3DFormat.buildG3DObject(obj,mtls,top)
 	-- DIFFUSE
 	if mtl.textureFile and not mtl.texture then
 		local path = mtl.modelpath or ""
---		print("path", path, "diffuse", mtl.textureFile)
+--		print("*path", path, "*diffuse", mtl.textureFile)
 		mtl.texture=Texture.new(path..mtl.textureFile,true,{ wrap=TextureBase.REPEAT, extend=false})
 		mtl.texturew=mtl.texture:getWidth()
 		mtl.textureh=mtl.texture:getHeight()
@@ -172,7 +172,7 @@ function G3DFormat.buildG3DObject(obj,mtls,top)
 	-- NORMAL
 	if mtl.normalMapFile and not mtl.normalMap then
 		local path = mtl.modelpath or ""
---		print("path", path, "normal", mtl.normalMapFile)
+--		print("*path", path, "*normal", mtl.normalMapFile)
 		mtl.normalMap=Texture.new(path..mtl.normalMapFile,true,{ wrap=TextureBase.REPEAT, extend=false})
 --		mtl.normalMapW=mtl.normalMap:getWidth()
 --		mtl.normalMapH=mtl.normalMap:getHeight()

@@ -24,18 +24,15 @@ gplane:updateMode(D3.Mesh.MODE_TEXTURE|D3.Mesh.MODE_LIGHTING|D3.Mesh.MODE_SHADOW
 
 -- some 3D .obj models
 local tree = loadObj("models/objs/tree", "trees02.obj") -- model folder, model name
-local bench = loadObj("models/objs/bench_plants", "bench.obj")
-local plants = loadObj("models/objs/bench_plants", "plants.obj")
+local bench = loadObj("models/objs/bench", "bench.obj")
 -- some glb models too
 local vegetation = {}
+local mushr01f = Glb.new("models/glbs", "shrooms.glb") -- model folder, model name
 local grass01f = Glb.new("models/glbs", "grass.glb")
-local mushr01f = Glb.new("models/glbs", "toman_kirilov_shroomz_gras.glb")
-local grass01animf = Glb.new("models/glbs", "grass_anim.glb") -- glb animation (WIP)
 local pickvegetal, vegetal
-for i = 1, 128 do
-	if i<=64 then pickvegetal = mushr01f vegetal = "mush01"
-	elseif i<=64*1.5 then pickvegetal = grass01animf vegetal = "grass"
-	else pickvegetal = grass01f vegetal = "grass"
+for i = 1, 64 do
+	if i<=16 then pickvegetal=mushr01f vegetal="mush01"
+	else pickvegetal=grass01f vegetal="grass"
 	end
 	vegetation[i] = G3DFormat.buildG3D(pickvegetal:getScene())
 	vegetation[i].vegetal = vegetal
@@ -52,7 +49,8 @@ local animIdle=buildGdx("models/characterLargeFemale/idle.json",{})
 -- set default animation to idle
 -- note: in our files, the first animation in array is the T-pose, the second is the real anim
 D3Anim.setAnimation(m,animIdle.animations[2],"main",true)
--- and a 2nd animated character (from mixamo)
+
+-- a 2nd animated character (from mixamo)
 local m2=buildGdx("models/theBoss/theBoss_mesh.json",
 	{ modelpath="models/theBoss/", }
 )
@@ -64,37 +62,35 @@ D3Anim.setAnimation(m2,animIdle2.animations[1],"main",true)
 local scale = 1.5
 tree:setScale(scale,scale,scale) -- obj
 bench:setScale(scale,scale,scale) -- obj
-plants:setScale(scale*0.8,scale*0.8,scale*0.8) -- obj
 for _, v in ipairs(vegetation) do -- glb
 	if v.vegetal == "grass" then
-		v:setScale(scale*math.random(1,4)*0.1,scale*math.random(2,4)*0.1,scale*math.random(1,4)*0.1)
-	else
-		v:setScale(scale*math.random(7,11)*0.1,scale*math.random(7,12)*0.1,scale*math.random(7,11)*0.1)
+		v:setScale(scale*math.random(1,4)*0.1,scale*math.random(2,7)*0.1,scale*math.random(1,4)*0.1)
+	else -- mushrooms
+		v:setScale(scale*math.random(5,8)*0.1,scale*math.random(5,9)*0.1,scale*math.random(5,8)*0.1)
 	end
 end
 m:setScale(0.01, 0.01, 0.01) -- json (from fbx)
 m2:setScale(0.016, 0.016, 0.016) -- json (from fbx)
 -- we rotate some models
-bench:setRotationY(-45)
+bench:setRotationY(110)
 for _, v in ipairs(vegetation) do v:setRotationY(math.random(0,360)) end
 -- we position our models
-bench:setPosition(3, 0, 0)
-plants:setPosition(3, 0, 2.5)
+bench:setPosition(-3.8, 0, 2)
 for _, v in ipairs(vegetation) do
-	if v.vegetal == "grass" then
-		v:setPosition(scale*math.random(-10,10),0,scale*math.random(-7,1))
-	else
-		v:setPosition(math.random(-15,15), 0, math.random(-15,1))
+	if v.vegetal == "grass" then v:setPosition(math.random(-10,10), 0, math.random(-7,1))
+	else v:setPosition(math.random(-15,15), 0, math.random(-15,1))
 	end
 end
 m:setPosition(0, 0, 0)
 m2:setPosition(1, 0, 1.5)
+
 -- now we add the models to the scene
 scene:addChild(gplane)
 scene:addChild(tree)
 scene:addChild(bench)
-scene:addChild(plants)
-for _, v in ipairs(vegetation) do scene:addChild(v) end
+for _, v in ipairs(vegetation) do
+	scene:addChild(v)
+end
 scene:addChild(m)
 scene:addChild(m2)
 -- and finally everything to stage

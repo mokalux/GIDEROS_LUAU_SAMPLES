@@ -203,7 +203,7 @@ function Glb:init(path,name)
 	local chunks={}
 	while length>=8 do
 		local chdr=self.binData:sub(l,l+7):decodeValue("ii")
-		local cl,ct=chdr[1],chdr[2]
+		local cl,_ct=chdr[1],chdr[2]
 --		print("CHUNK",("%08x:%08x"):format(cl,ct))
 		table.insert(chunks,{type=chdr[2],length=chdr[1],start=l+8})
 		l+=8+cl
